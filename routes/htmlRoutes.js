@@ -10,5 +10,3 @@ router.get("*", (req, res)=>{
 })
 
 module.exports = router
-
-Develop/public/notes.html
