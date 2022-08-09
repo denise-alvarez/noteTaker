@@ -1,4 +1,4 @@
-const router = require("express").Router();
+const router  = require("express").Router();
 const path = require("path");
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
@@ -10,13 +10,12 @@ router.post("/notes", (req, res) => {
 
   const newSaves = [
     ...parse,
-    { title: req.body.title, text: req.body.text, id: uuidv4()}];
+    { title:req.body.title, text:req.body.text, id:uuidv4()}];
 
   fs.writeFileSync(
     path.join(process.cwd(), "/db/db.json"),
     JSON.stringify(newSaves))
-
-  res.send(newSaves)
+    res.send(newSaves)
 });
 
 router.get("/notes", (req, res) => {
@@ -28,3 +27,4 @@ router.get("/notes", (req, res) => {
 });
 
 module.exports = router
+
